@@ -1,0 +1,25 @@
+<div class="content-wrapper">
+  <mat-card class="main-card">
+    <mat-card-content class="main-card-content">
+      <div class="nav-bar">
+        <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a mat-button routerLink="/leaflet"  class="nav-link">Simple</a>
+        </div>
+        <div class="nav-item" routerLinkActive="active">
+          <a mat-button routerLink="markers" class="nav-link">Markers</a>
+        </div>
+        <div class="nav-item" routerLinkActive="active">
+          <a mat-button routerLink="polygon" class="nav-link">Polygons</a>
+        </div>
+        <div class="nav-item" routerLinkActive="active">
+          <a mat-button routerLink="geojson" class="nav-link">GeoJSON</a>
+        </div>
+      </div>
+      <mat-card class="example-card">
+        <mat-card-content>
+          <router-outlet></router-outlet>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</div>
