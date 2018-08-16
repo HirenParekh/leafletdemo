@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import L from 'leaflet';
 import {environment} from '../../../environments/environment';
-declare var require:any;
+
+declare var require: any;
 
 @Component({
   selector: 'app-childone',
@@ -10,13 +11,15 @@ declare var require:any;
 })
 export class ChildoneComponent implements OnInit {
 
-  leaflet:any;
+  leaflet: any;
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.initMap();
     this.renderDataOnMap();
   }
@@ -43,23 +46,30 @@ export class ChildoneComponent implements OnInit {
     });
 
     let mapOptions = {
-      zoomSnap:0,
-      zoomDelta:0.5,
+      zoomSnap: 0,
+      zoomDelta: 0.5,
       zoomControl: false,
-      layers:[satelliteView,streetView]
+      layers: [streetView]
     };
 
     let baseMaps = {
-      "<img title='Satellite view' class='layer-style' src='/assets/images/satelliteView.png'>": satelliteView,
-      "<img title='Street view' class='layer-style' src='/assets/images/streetView.PNG'>": streetView
+      '<img title=\'Satellite view\' class=\'layer-style\' src=\'/assets/images/satelliteView.png\'>': satelliteView,
+      '<img title=\'Street view\' class=\'layer-style\' src=\'/assets/images/streetView.PNG\'>': streetView
     };
 
-    this.leaflet = L.map('leafletmap',mapOptions).setView([23.224043, 72.646284], 15);
-    L.control.zoom({position:'topright'}).addTo(this.leaflet);
-    L.control.layers(baseMaps,'',{collapsed:false}).addTo(this.leaflet);
+    this.leaflet = L.map('leafletmap', mapOptions).setView([23.224043, 72.646284], 15);
+    L.control.zoom({position: 'topright'}).addTo(this.leaflet);
+    L.control.layers(baseMaps, '', {collapsed: false}).addTo(this.leaflet);
+
+    this.leaflet.on('zoomend ', (event) => {
+      if (this.leaflet.getZoom() >= 17) {
+        this.leaflet.removeLayer(streetView);
+        this.leaflet.addLayer(satelliteView);
+      }
+    });
   }
 
-  renderDataOnMap(){
+  renderDataOnMap() {
 
   }
 }
