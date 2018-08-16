@@ -12,7 +12,7 @@ declare var require: any;
 export class ChildoneComponent implements OnInit {
 
   leaflet: any;
-
+  public layerCtrls:any;
   constructor() {
   }
 
@@ -59,7 +59,7 @@ export class ChildoneComponent implements OnInit {
 
     this.leaflet = L.map('leafletmap', mapOptions).setView([23.224043, 72.646284], 15);
     L.control.zoom({position: 'topright'}).addTo(this.leaflet);
-    L.control.layers(baseMaps, '', {collapsed: false}).addTo(this.leaflet);
+    this.layerCtrls = L.control.layers(baseMaps, '', {collapsed: false}).addTo(this.leaflet);
 
     this.leaflet.on('zoomend ', (event) => {
       if (this.leaflet.getZoom() >= 17) {

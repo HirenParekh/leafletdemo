@@ -16,7 +16,7 @@ export class ChildfourComponent extends ChildoneComponent implements OnInit {
   renderDataOnMap() {
     let states = [{
       type: 'Feature',
-      properties: {'party': 'Republican','popupData':'Sector - 16'},
+      properties: {'party': 'Republican', 'popupData': 'Sector - 16'},
       geometry: {
         type: 'Polygon',
         coordinates: [[
@@ -29,7 +29,7 @@ export class ChildfourComponent extends ChildoneComponent implements OnInit {
       }
     }, {
       type: 'Feature',
-      properties: {'party': 'Democrat','popupData':'Sector - 10'},
+      properties: {'party': 'Democrat', 'popupData': 'Sector - 10'},
       geometry: {
         type: 'Polygon',
         coordinates: [[
@@ -42,7 +42,7 @@ export class ChildfourComponent extends ChildoneComponent implements OnInit {
       }
     }];
 
-    L.geoJSON(states, {
+    let geoJSONLayer = L.geoJSON(states, {
       style: function (feature) {
         switch (feature.properties.party) {
           case 'Republican':
@@ -55,7 +55,13 @@ export class ChildfourComponent extends ChildoneComponent implements OnInit {
         layer.bindTooltip(feature.properties.popupData);
         layer.bindPopup(feature.properties.popupData);
       }
-    }).addTo(this.leaflet);
+    });
+    geoJSONLayer.addTo(this.leaflet);
+    //this.layerCtrls.addOverlay(geoJSONLayer, 'Sectors').addTo(this.leaflet);
+    let overlayMaps = {
+      'Sectors': geoJSONLayer
+    };
+    L.control.layers('', overlayMaps, {collapsed: false}).addTo(this.leaflet);
   }
 
 }
