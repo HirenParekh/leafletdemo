@@ -37,3 +37,16 @@ body{
   border-radius: 5px;
   transition: all 220ms ease-in-out;
 }
+
+.div-icon-marker{
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  background-color: red;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
+  width: 30px;
+  height: 30px;
+}
+
+.div-icon-marker:hover{
+  background-color: green;
+}

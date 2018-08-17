@@ -30,12 +30,19 @@ export class ChildtwoComponent extends ChildoneComponent implements OnInit, Afte
       iconAnchor: [20, 20],
       popupAnchor: [0, -20]
     });
-    L.marker([23.219204, 72.626284], {icon: icon1}).addTo(this.leaflet).bindPopup('Smile :)');
-    L.marker([23.225204, 72.644284], {icon: icon2}).addTo(this.leaflet).bindPopup('Snake');
-    L.marker([23.222204, 72.644284], {icon: icon2}).addTo(this.leaflet).bindPopup('Snake');
-    L.marker([23.222204, 72.639284], {icon: icon2}).addTo(this.leaflet).bindPopup('Snake');
-    L.marker([23.220204, 72.639284], {icon: icon2}).addTo(this.leaflet).bindPopup('Snake');
-    L.marker([23.226504, 72.64084], {icon: icon2}).addTo(this.leaflet).bindPopup('Snake');
+    let divIcon = L.divIcon({
+      className: 'div-icon-marker',
+      iconSize: [20, 20],
+      iconAnchor: [10, 10],
+      popupAnchor: [0, -10]
+    });
+    L.marker([23.219204, 72.626284], {icon: divIcon}).addTo(this.leaflet).bindPopup('Smile :)');
+    L.marker([23.225204, 72.644284], {icon: divIcon}).addTo(this.leaflet).bindPopup('Snake');
+    L.marker([23.222204, 72.644284], {icon: divIcon}).addTo(this.leaflet).bindPopup('Snake');
+    L.marker([23.222204, 72.639284], {icon: divIcon}).addTo(this.leaflet).bindPopup('Snake');
+    L.marker([23.220204, 72.639284], {icon: divIcon}).addTo(this.leaflet).bindPopup('Snake');
+    L.marker([23.226504, 72.64084], {icon: divIcon}).addTo(this.leaflet).bindPopup('Snake');
+    L.marker([23.216504, 72.63084], {icon: divIcon}).addTo(this.leaflet).bindPopup('html pin');
   }
 
 }
