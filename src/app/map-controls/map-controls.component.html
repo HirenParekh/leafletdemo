@@ -1,0 +1,32 @@
+<div class="map-control-wrapper">
+  <div class="map-control zoom-control">
+    <div class="btn-zoom" (click)="onBtnZoomInClick($event)">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+    </div>
+    <div class="btn-zoom" (click)="onBtnZoomOutClick($event)">
+      <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+    </div>
+  </div>
+  <div class="map-control layer-control">
+    <div class="drd-handle" (click)="isLayerCtrlActive = !isLayerCtrlActive">
+      <span>Map <fa-icon icon="caret-down"></fa-icon></span>
+    </div>
+    <div class="drd-menu" [class.active]="isLayerCtrlActive">
+      <div class="menu-item">
+        <input type="radio" name="radio-layer" checked (change)="onLayerSelectionChanged($event)" value="automatic"
+               class="item-input" id="radioAutomatic">
+        <label for="radioAutomatic">Automatic</label>
+      </div>
+      <div class="menu-item">
+        <input type="radio" name="radio-layer" (change)="onLayerSelectionChanged($event)" value="aerial"
+               class="item-input" id="radioAerial">
+        <label for="radioAerial">Aerial</label>
+      </div>
+      <div class="menu-item">
+        <input type="radio" name="radio-layer" (change)="onLayerSelectionChanged($event)" value="street"
+               class="item-input" id="radioStreet">
+        <label for="radioStreet">Street</label>
+      </div>
+    </div>
+  </div>
+</div>

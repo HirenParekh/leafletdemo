@@ -16,7 +16,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material';
-
+import {MapControlsComponent} from './map-controls/map-controls.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,11 +31,13 @@ import {MatButtonModule} from '@angular/material';
     GrandChildoneComponent,
     GrandChildtwoComponent,
     GrandChildthreeComponent,
-    GrandChildfourComponent
+    GrandChildfourComponent,
+    MapControlsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FontAwesomeModule,
     AppRoutingModule,
     MatCardModule,
     MatButtonToggleModule,
@@ -41,4 +46,8 @@ import {MatButtonModule} from '@angular/material';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    library.add(fas);
+  }
+}

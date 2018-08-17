@@ -12,7 +12,11 @@ declare var require: any;
 export class ChildoneComponent implements OnInit {
 
   leaflet: any;
-  public layerCtrls:any;
+  aerialViewLayer: any;
+  streetViewLayer: any;
+  activeLayerName: string = 'automatic';
+  isViewAutoChanged: boolean = false;
+
   constructor() {
   }
 
@@ -32,13 +36,13 @@ export class ChildoneComponent implements OnInit {
       shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
     });
 
-    let streetView = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    this.streetViewLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
       id: 'mapbox.streets',
       accessToken: environment.mapBoxKey
     });
-    let satelliteView = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    this.aerialViewLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
       id: 'mapbox.satellite',
@@ -49,27 +53,66 @@ export class ChildoneComponent implements OnInit {
       zoomSnap: 0,
       zoomDelta: 0.5,
       zoomControl: false,
-      layers: [streetView]
+      layers: [this.streetViewLayer]
     };
 
     let baseMaps = {
-      '<img title=\'Satellite view\' class=\'layer-style\' src=\'/assets/images/satelliteView.png\'>': satelliteView,
-      '<img title=\'Street view\' class=\'layer-style\' src=\'/assets/images/streetView.PNG\'>': streetView
+      '<img title=\'Satellite view\' class=\'layer-style\' src=\'/assets/images/satelliteView.png\'>': this.aerialViewLayer,
+      '<img title=\'Street view\' class=\'layer-style\' src=\'/assets/images/streetView.PNG\'>': this.streetViewLayer
     };
 
     this.leaflet = L.map('leafletmap', mapOptions).setView([23.224043, 72.646284], 15);
-    L.control.zoom({position: 'topright'}).addTo(this.leaflet);
-    this.layerCtrls = L.control.layers(baseMaps, '', {collapsed: false}).addTo(this.leaflet);
 
     this.leaflet.on('zoomend ', (event) => {
-      if (this.leaflet.getZoom() >= 17) {
-        this.leaflet.removeLayer(streetView);
-        this.leaflet.addLayer(satelliteView);
-      }
+      this.handleViewAutoUpdate();
     });
   }
 
   renderDataOnMap() {
 
+  }
+
+  onBtnZoomInClickEventHandler(event) {
+    this.leaflet.zoomIn();
+  }
+
+  onBtnZoomOutClickEventHandler(event) {
+    this.leaflet.zoomOut();
+  }
+
+  handleViewAutoUpdate() {
+    if (this.activeLayerName === 'automatic') {
+      let zoomVal = this.leaflet.getZoom();
+      if (zoomVal >= 17) {
+        this.leaflet.removeLayer(this.streetViewLayer);
+        this.leaflet.addLayer(this.aerialViewLayer);
+        this.isViewAutoChanged = true;
+      } else if (this.isViewAutoChanged) {
+        this.leaflet.removeLayer(this.aerialViewLayer);
+        this.leaflet.addLayer(this.streetViewLayer);
+      }
+    }
+  }
+
+  onLayerSelectionChangeEventHandler(layerName) {
+    switch (layerName) {
+      case 'automatic':
+        this.leaflet.removeLayer(this.aerialViewLayer);
+        this.leaflet.addLayer(this.streetViewLayer);
+        this.activeLayerName = 'automatic';
+        this.handleViewAutoUpdate();
+        break;
+      case 'aerial':
+        this.leaflet.removeLayer(this.streetViewLayer);
+        this.leaflet.addLayer(this.aerialViewLayer);
+        this.activeLayerName = 'aerial';
+        break;
+      case 'street':
+        this.leaflet.removeLayer(this.aerialViewLayer);
+        this.leaflet.addLayer(this.streetViewLayer);
+        this.activeLayerName = 'street';
+        break;
+      default:
+    }
   }
 }

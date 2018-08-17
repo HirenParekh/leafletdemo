@@ -57,7 +57,6 @@ export class ChildfourComponent extends ChildoneComponent implements OnInit {
       }
     });
     geoJSONLayer.addTo(this.leaflet);
-    //this.layerCtrls.addOverlay(geoJSONLayer, 'Sectors').addTo(this.leaflet);
     let overlayMaps = {
       'Sectors': geoJSONLayer
     };
