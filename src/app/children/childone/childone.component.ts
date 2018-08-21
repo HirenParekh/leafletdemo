@@ -66,6 +66,9 @@ export class ChildoneComponent implements OnInit {
     this.leaflet.on('zoomend ', (event) => {
       this.handleViewAutoUpdate();
     });
+    this.leaflet.on('moveend', () => {
+      //console.log(this.leaflet.getBounds());
+    });
   }
 
   renderDataOnMap() {

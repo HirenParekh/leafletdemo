@@ -20,6 +20,7 @@ import {MapControlsComponent} from './map-controls/map-controls.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import {FilterMenuModule} from './filter-menu/filter-menu.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,13 +33,14 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     GrandChildtwoComponent,
     GrandChildthreeComponent,
     GrandChildfourComponent,
-    MapControlsComponent
+    MapControlsComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
     AppRoutingModule,
+    FilterMenuModule,
     MatCardModule,
     MatButtonToggleModule,
     MatButtonModule

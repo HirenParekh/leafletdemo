@@ -1,0 +1,43 @@
+.filter-menu-wrapper {
+  background-color: #d9f0f9;
+  margin-bottom: 10px;
+  z-index: 1000;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: 50px;
+}
+
+.filter-menu-wrapper .menu-item {
+  border-right: 1px solid #ffffff;
+}
+
+.filter-wrapper {
+  height: 100%;
+}
+
+.filter-wrapper .drd-wrapper {
+  position: relative;
+  height: inherit;
+}
+
+.filter-wrapper .drd-wrapper .drd-handle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: inherit;
+}
+
+.filter-wrapper .drd-wrapper .drd-body {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: orange;
+}
+
+.filter-wrapper .drd-wrapper.open .drd-body {
+  display: block;
+}
