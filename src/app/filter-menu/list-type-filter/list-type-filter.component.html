@@ -1,6 +1,6 @@
 <div class="filter-wrapper">
   <div class="drd-wrapper" [class.open]="isDrdOpen">
-    <div class="drd-handle" (click)="onDrdHandleClicked($event)">
+    <a class="drd-handle anchor-div" (click)="onDrdHandleClicked($event)" href="javascript:void(0)">
       <div class="handle-title">
         <span class="house-type marker for-sale"
               *ngIf="listTypeConstants.FOR_SALE['isSelected']"></span>
@@ -12,38 +12,36 @@
               *ngIf="listTypeConstants.RECENTLY_SOLD['isSelected']"></span>
         {{filterLabel}}
       </div>
-    </div>
-    <div class="drd-body">
+    </a>
+    <div class="drd-body" #drdBody>
       <ul class="main-list">
         <li *ngFor="let currType of houseListTypes">
-          <label>
+          <a class="anchor-div" href="javascript:void(0)" (click)="onMainCheckboxChange(currType)">
             <input type="checkbox"
-                   [(ngModel)]="currType.type['isSelected']"
-                   (change)="onMainCheckboxChange($event,currType)">
+                   [(ngModel)]="currType.type['isSelected']">
             <span>
-              <span class="house-type marker for-sale"
-                    *ngIf="currType.type.value == listTypeConstants.FOR_SALE.value"></span>
-              <span class="house-type marker potential-list"
-                    *ngIf="currType.type.value == listTypeConstants.POTENTIAL_LISTINGS.value"></span>
-              <span class="house-type marker for-rent"
-                    *ngIf="currType.type.value == listTypeConstants.FOR_RENT.value"></span>
-              <span class="house-type marker recently-sold"
-                    *ngIf="currType.type.value == listTypeConstants.RECENTLY_SOLD.value"></span>
-              <span class="lbl-text">{{currType.type.label}}</span>
-              <span class="lbl-count"> (0)</span>
-            </span>
-          </label>
+                  <span class="house-type marker for-sale"
+                        *ngIf="currType.type.value == listTypeConstants.FOR_SALE.value"></span>
+                  <span class="house-type marker potential-list"
+                        *ngIf="currType.type.value == listTypeConstants.POTENTIAL_LISTINGS.value"></span>
+                  <span class="house-type marker for-rent"
+                        *ngIf="currType.type.value == listTypeConstants.FOR_RENT.value"></span>
+                  <span class="house-type marker recently-sold"
+                        *ngIf="currType.type.value == listTypeConstants.RECENTLY_SOLD.value"></span>
+                  <span class="lbl-text">{{currType.type.label}}</span>
+                  <span class="lbl-count"> (0)</span>
+              </span>
+          </a>
           <ul *ngIf="currType?.subTypes?.length" class="sub-list">
             <li *ngFor="let currSubType of currType.subTypes">
-              <label>
+              <a href="javascript:void(0)" class="anchor-div" (click)="onSubTypeChanged(currSubType)">
                 <input type="checkbox"
-                       [(ngModel)]="currSubType['isSelected']"
-                       (change)="onSubTypeChanged($event,currSubType)">
+                       [(ngModel)]="currSubType['isSelected']">
                 <span>
-                  <span class="lbl-text">{{currSubType.label}}</span>
-                  <span class="lbl-count"> (0)</span>
+                    <span class="lbl-text">{{currSubType.label}}</span>
+                    <span class="lbl-count"> (0)</span>
                 </span>
-              </label>
+              </a>
             </li>
           </ul>
         </li>

@@ -12,38 +12,38 @@
   margin-left: 20px;
 }
 
-.main-list > li > label span{
+.main-list > li > a span{
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.sub-list > li > label span{
+.sub-list > li > a span{
   font-weight: 500;
 }
 
-ul > li > label {
+ul > li > a {
   white-space: nowrap;
   cursor: pointer;
   display: block;
   margin-bottom: 10px;
 }
 
-ul > li > label:hover {
+ul > li > a:hover {
   color: #0074e4;
 }
 
-ul > li > label > input[type=checkbox] {
+ul > li > a > input[type=checkbox] {
   display: none;
 }
 
-ul > li > label > input[type=checkbox] + span {
+ul > li > a > input[type=checkbox] + span {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
   padding-left: 22px;
 }
 
-ul > li > label > input[type=checkbox] + span:before {
+ul > li > a > input[type=checkbox] + span:before {
   content: '\f0c8';
   font-family: "Font Awesome 5 Free",sans-serif;
   position: absolute;
@@ -54,7 +54,7 @@ ul > li > label > input[type=checkbox] + span:before {
   font-weight: 400;
 }
 
-ul > li > label > input[type=checkbox]:checked + span:before {
+ul > li > a > input[type=checkbox]:checked + span:before {
   content: '\f14a';
   font-family: "Font Awesome 5 Free",sans-serif;
   box-sizing: border-box;

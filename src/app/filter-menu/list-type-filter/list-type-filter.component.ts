@@ -60,17 +60,19 @@ export class ListTypeFilterComponent extends DropDownBaseComponent implements IC
     return value;
   }
 
-  onMainCheckboxChange(event, mainType) {
+  onMainCheckboxChange(mainType) {
+    mainType.type['isSelected'] = !mainType.type['isSelected'];
     mainType.subTypes.forEach(val => {
-      val['isSelected'] = event.target.checked;
+      val['isSelected'] = mainType.type['isSelected'];
     });
     this.updateFilterLabel();
     this.updateFilterValue();
   }
 
-  onSubTypeChanged(event, subType) {
+  onSubTypeChanged(subType) {
+    subType['isSelected'] = !subType['isSelected'];
     let mainType = this.getMainTypeByValue(subType.parent);
-    if (event.target.checked) {
+    if (subType['isSelected']) {
       mainType.type['isSelected'] = true;
     }
     else if (this.isAllSubTypeUnchecked(mainType)) {

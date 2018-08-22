@@ -1,7 +1,7 @@
 .filter-menu-wrapper {
   background-color: #d9f0f9;
   margin-bottom: 10px;
-  z-index: 1000;
+  z-index: 1005;
   position: relative;
   display: flex;
   align-items: stretch;
@@ -36,8 +36,20 @@
   left: 0;
   top: 100%;
   background-color: #ffffff;
+  overflow-y: auto;
 }
 
 .filter-wrapper .drd-wrapper.open .drd-body {
   display: block;
+}
+
+.btn-div {
+  background-color: transparent;
+  border: none;
+  color: #000000;
+}
+
+.anchor-div, .anchor-div:hover, .anchor-div:visited, .anchor-div:active {
+  text-decoration: none;
+  color: #000000;
 }
