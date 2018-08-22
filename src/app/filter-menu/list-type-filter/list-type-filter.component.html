@@ -1,10 +1,53 @@
 <div class="filter-wrapper">
   <div class="drd-wrapper" [class.open]="isDrdOpen">
     <div class="drd-handle" (click)="onDrdHandleClicked($event)">
-      <div class="handle-title">List type</div>
+      <div class="handle-title">
+        <span class="house-type marker for-sale"
+              *ngIf="listTypeConstants.FOR_SALE['isSelected']"></span>
+        <span class="house-type marker potential-list"
+              *ngIf="listTypeConstants.POTENTIAL_LISTINGS['isSelected']"></span>
+        <span class="house-type marker for-rent"
+              *ngIf="listTypeConstants.FOR_RENT['isSelected']"></span>
+        <span class="house-type marker recently-sold"
+              *ngIf="listTypeConstants.RECENTLY_SOLD['isSelected']"></span>
+        {{filterLabel}}
+      </div>
     </div>
     <div class="drd-body">
-        <h1>Hiren Parekh</h1>
+      <ul class="main-list">
+        <li *ngFor="let currType of houseListTypes">
+          <label>
+            <input type="checkbox"
+                   [(ngModel)]="currType.type['isSelected']"
+                   (change)="onMainCheckboxChange($event,currType)">
+            <span>
+              <span class="house-type marker for-sale"
+                    *ngIf="currType.type.value == listTypeConstants.FOR_SALE.value"></span>
+              <span class="house-type marker potential-list"
+                    *ngIf="currType.type.value == listTypeConstants.POTENTIAL_LISTINGS.value"></span>
+              <span class="house-type marker for-rent"
+                    *ngIf="currType.type.value == listTypeConstants.FOR_RENT.value"></span>
+              <span class="house-type marker recently-sold"
+                    *ngIf="currType.type.value == listTypeConstants.RECENTLY_SOLD.value"></span>
+              <span class="lbl-text">{{currType.type.label}}</span>
+              <span class="lbl-count"> (0)</span>
+            </span>
+          </label>
+          <ul *ngIf="currType?.subTypes?.length" class="sub-list">
+            <li *ngFor="let currSubType of currType.subTypes">
+              <label>
+                <input type="checkbox"
+                       [(ngModel)]="currSubType['isSelected']"
+                       (change)="onSubTypeChanged($event,currSubType)">
+                <span>
+                  <span class="lbl-text">{{currSubType.label}}</span>
+                  <span class="lbl-count"> (0)</span>
+                </span>
+              </label>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

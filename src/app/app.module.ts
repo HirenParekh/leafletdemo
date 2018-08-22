@@ -21,6 +21,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import {FilterMenuModule} from './filter-menu/filter-menu.module';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import {FilterMenuModule} from './filter-menu/filter-menu.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     FontAwesomeModule,
     AppRoutingModule,
     FilterMenuModule,

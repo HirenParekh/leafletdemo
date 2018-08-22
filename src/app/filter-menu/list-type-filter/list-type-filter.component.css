@@ -1,0 +1,65 @@
+.main-list, .sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-list {
+  padding: 10px;
+}
+
+.sub-list {
+  margin-left: 20px;
+}
+
+.main-list > li > label span{
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sub-list > li > label span{
+  font-weight: 500;
+}
+
+ul > li > label {
+  white-space: nowrap;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+}
+
+ul > li > label:hover {
+  color: #0074e4;
+}
+
+ul > li > label > input[type=checkbox] {
+  display: none;
+}
+
+ul > li > label > input[type=checkbox] + span {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: 22px;
+}
+
+ul > li > label > input[type=checkbox] + span:before {
+  content: '\f0c8';
+  font-family: "Font Awesome 5 Free",sans-serif;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 18px;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+ul > li > label > input[type=checkbox]:checked + span:before {
+  content: '\f14a';
+  font-family: "Font Awesome 5 Free",sans-serif;
+  box-sizing: border-box;
+}
+
+.house-type.marker{
+  margin-right: 3px;
+}

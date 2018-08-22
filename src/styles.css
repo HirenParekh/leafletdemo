@@ -82,3 +82,26 @@ body {
 .popup-content .info-item .item-text {
 
 }
+
+.house-type.marker{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.house-type.marker.for-sale{
+  background-color: #fc384a;
+}
+
+.house-type.marker.potential-list{
+  background-color:#0074e4;
+}
+
+.house-type.marker.for-rent{
+  background-color: #a357de;
+}
+
+.house-type.marker.recently-sold{
+  background-color: #fce012;
+}

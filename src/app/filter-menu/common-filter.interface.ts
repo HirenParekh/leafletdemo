@@ -1,8 +1,8 @@
 export interface ICommonFilter {
   filterType: string;
 
-  setValue();
+  setValue(value:any);
 
-  getValue();
+  getValue():any;
 
 }
