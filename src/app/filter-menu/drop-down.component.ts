@@ -1,4 +1,6 @@
-import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
+import {DOWN_ARROW, UP_ARROW} from '@angular/cdk/keycodes';
+import {ListKeyboardManager} from './list-keyboard.manager';
 
 @Component({
   selector: 'app-drop-down-base',
@@ -7,29 +9,61 @@ import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 export class DropDownBaseComponent {
 
   isDrdOpen: boolean;
+  @Input()
+  isChildDrd: boolean = false;
 
   constructor() {
 
   }
 
   @ViewChild('drdBody') drdBody: ElementRef;
+  @ViewChild('drdHandle') drdHandle: ElementRef;
 
   @HostListener('click', ['$event'])
   onHostClicked(event) {
-    event.stopPropagation();
+    if (!this.isChildDrd) {
+      event.stopPropagation();
+      document.dispatchEvent(new Event('closeOtherChildDrd'));
+    }
   }
 
   ngAfterViewInit() {
     document.addEventListener('click', (event) => {
       this.isDrdOpen = false;
     });
+    document.addEventListener('closeOtherDrd', (event) => {
+      this.isDrdOpen = false;
+    });
+    document.addEventListener('closeOtherChildDrd', (event) => {
+      console.log('closeOtherChildDrd');
+      if (this.isChildDrd)
+        this.isDrdOpen = false;
+    });
+    if (this.drdHandle) {
+      this.drdHandle.nativeElement.addEventListener('keydown', (e) => {
+        this.onSelectListKeyPressEvent(e);
+      });
+    }
   }
 
   onDrdHandleClicked(event) {
-    event.stopPropagation();
-    this.isDrdOpen = !this.isDrdOpen;
-    if (this.isDrdOpen)
-      this.setDrdMaxHeight();
+    if (this.isDrdOpen) {
+      this.isDrdOpen = false;
+      return;
+    }
+    //event.stopPropagation();
+    if (this.isChildDrd) {
+      document.dispatchEvent(new Event('closeOtherChildDrd'));
+    }
+    else {
+      document.dispatchEvent(new Event('closeOtherDrd'));
+    }
+
+    setTimeout(() => {
+      this.isDrdOpen = !this.isDrdOpen;
+      /*if (this.isDrdOpen)
+        this.setDrdMaxHeight();*/
+    }, 0);
   }
 
   onDrdOpen() {
@@ -45,4 +79,9 @@ export class DropDownBaseComponent {
     }, 0);
   }
 
+  onSelectListKeyPressEvent(event: KeyboardEvent) {
+    if (event.keyCode === DOWN_ARROW || event.keyCode === UP_ARROW) {
+      this.isDrdOpen = true;
+    }
+  }
 }

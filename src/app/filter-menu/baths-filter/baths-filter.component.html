@@ -1,0 +1,18 @@
+<div class="filter-wrapper filter-lg">
+  <div class="filter-label">{{filterLabel}}</div>
+  <div class="drd-wrapper" [class.open]="isDrdOpen">
+    <a class="drd-handle anchor-div show-border" (click)="onDrdHandleClicked($event)" #drdHandle
+       href="javascript:void(0)">
+      Hiren
+    </a>
+    <div class="drd-body show-border" #drdBody>
+      <app-selection-list>
+        <app-selection-list-item *ngFor="let currItem of noOfBathList"
+                                 (selectionChanged)="onBathNoSelectionChanged($event,currItem)"
+                                 [isSelected]="selectedItem == currItem">
+          {{currItem.label}}
+        </app-selection-list-item>
+      </app-selection-list>
+    </div>
+  </div>
+</div>

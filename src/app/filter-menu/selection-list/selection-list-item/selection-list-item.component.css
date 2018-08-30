@@ -1,0 +1,19 @@
+.select-list-item a {
+  display: block;
+  padding: 10px 10px 10px 8px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.select-list-item a:hover, .select-list-item a:focus,.select-list-item.active a {
+  background-color: #0074e4;
+  color: #ffffff;
+  font-weight: 500;
+  outline: 0;
+}
+
+.select-list-item.selected a {
+  background-color: #62aef6;
+  color: #fff;
+  font-weight: 600;
+}

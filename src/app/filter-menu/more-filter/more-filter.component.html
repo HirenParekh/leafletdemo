@@ -1,0 +1,14 @@
+<div class="filter-wrapper">
+  <div class="drd-wrapper" [class.open]="isDrdOpen">
+    <a class="drd-handle anchor-div" (click)="onDrdHandleClicked($event)" href="javascript:void(0)">
+      <div class="handle-title">
+        {{filterLabel}}
+      </div>
+    </a>
+    <div class="drd-body box-shadow" #drdBody>
+      <icity-baths-filter [isChildDrd]="true" (valueChanged)="onFilterValueChanged($event)"></icity-baths-filter>
+      <!--<icity-lot-size-filter [isChildDrd]="true"></icity-lot-size-filter>-->
+    </div>
+  </div>
+</div>
+

@@ -6,7 +6,15 @@ import {Component} from '@angular/core';
   styleUrls: ['filter-menu.component.css']
 })
 export class FilterMenuComponent {
+
+  filterCriteria: any = {};
+
   constructor() {
 
+  }
+
+  onFilterValueChanged(filterEvent: { filterType: string, filterValue: any }) {
+    this.filterCriteria[filterEvent.filterType] = filterEvent.filterValue;
+    console.log(this.filterCriteria);
   }
 }

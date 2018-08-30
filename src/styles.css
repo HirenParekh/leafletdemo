@@ -105,3 +105,21 @@ body {
 .house-type.marker.recently-sold{
   background-color: #fce012;
 }
+
+.box-shadow {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .5);
+}
+
+.show-border {
+  border: 1px solid #cccccc;
+}
+.btn-div {
+  background-color: transparent;
+  border: none;
+  color: #000000;
+}
+
+.anchor-div, .anchor-div:hover, .anchor-div:visited, .anchor-div:active {
+  text-decoration: none;
+  color: #000000;
+}

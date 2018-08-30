@@ -36,7 +36,7 @@ export class ListTypeFilterComponent extends DropDownBaseComponent implements IC
   }
 
   @Output()
-  valueChanged: EventEmitter<any> = new EventEmitter<any>();
+  valueChanged: EventEmitter<{ filterType: string, filterValue: any }> = new EventEmitter<{ filterType: string, filterValue: any }>();
 
   renderValue() {
     if (!this.filterValue) {
@@ -55,8 +55,8 @@ export class ListTypeFilterComponent extends DropDownBaseComponent implements IC
         }
       }
     }
-    this.valueChanged.emit(value);
     this.filterValue = value;
+    this.valueChanged.emit({filterType: this.filterType, filterValue: this.filterValue});
     return value;
   }
 

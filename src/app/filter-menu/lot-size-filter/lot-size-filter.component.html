@@ -1,0 +1,20 @@
+<div class="filter-wrapper filter-lg">
+  <div class="filter-label">{{filterLabel}}</div>
+  <div class="drd-wrapper" [class.open]="isDrdOpen">
+    <a class="drd-handle anchor-div show-border" #drdHandle (click)="onDrdHandleClicked($event)" href="javascript:void(0)">
+      Hiren
+    </a>
+    <div class="drd-body show-border" #drdBody>
+      <ul class="select-list">
+        <li><a href="javascript:void(0)" class="anchor-div">0+</a></li>
+        <li><a href="javascript:void(0)" class="anchor-div">1+</a></li>
+        <li><a href="javascript:void(0)" class="anchor-div">1.5+</a></li>
+        <li><a href="javascript:void(0)" class="anchor-div">2+</a></li>
+        <li><a href="javascript:void(0)" class="anchor-div">3+</a></li>
+        <li><a href="javascript:void(0)" class="anchor-div">4+</a></li>
+        <li><a href="javascript:void(0)" class="anchor-div">5+</a></li>
+        <li><a href="javascript:void(0)" class="anchor-div">6+</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,8 @@
 <div class="filter-menu-wrapper">
   <div class="menu-item">
-    <app-list-type-filter></app-list-type-filter>
+    <app-list-type-filter (valueChanged)="onFilterValueChanged($event)"></app-list-type-filter>
+  </div>
+  <div class="menu-item">
+    <app-more-filter></app-more-filter>
   </div>
 </div>
