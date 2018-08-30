@@ -55,9 +55,10 @@ export class BathsFilterComponent extends DropDownBaseComponent implements OnIni
 
   }
 
-  onBathNoSelectionChanged(event, item) {
+  onBathNoSelectionChanged(item) {
     this.selectedItem = item;
     this.updateFilterValue();
+    this.isDrdOpen = false;
     console.log(item);
   }
 }

@@ -9,6 +9,7 @@ import {FilterTypeConstants, HouseListTypes, ListTypeConstants} from '../filter.
 })
 export class MoreFilterComponent extends DropDownBaseComponent implements OnInit {
 
+
   constructor() {
     super();
   }

@@ -3,12 +3,13 @@
   <div class="drd-wrapper" [class.open]="isDrdOpen">
     <a class="drd-handle anchor-div show-border" (click)="onDrdHandleClicked($event)" #drdHandle
        href="javascript:void(0)">
-      Hiren
+      {{selectedItem?.label}}
     </a>
     <div class="drd-body show-border" #drdBody>
       <app-selection-list>
         <app-selection-list-item *ngFor="let currItem of noOfBathList"
-                                 (selectionChanged)="onBathNoSelectionChanged($event,currItem)"
+                                 (click)="onBathNoSelectionChanged(currItem)"
+                                 (selectionChanged)="onBathNoSelectionChanged(currItem)"
                                  [isSelected]="selectedItem == currItem">
           {{currItem.label}}
         </app-selection-list-item>
