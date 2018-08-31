@@ -39,11 +39,6 @@ export class DropDownBaseComponent {
       if (this.isChildDrd)
         this.isDrdOpen = false;
     });
-    if (this.drdHandle) {
-      this.drdHandle.nativeElement.addEventListener('keydown', (e) => {
-        this.onSelectListKeyPressEvent(e);
-      });
-    }
   }
 
   onDrdHandleClicked(event) {
@@ -77,11 +72,5 @@ export class DropDownBaseComponent {
         this.onDrdOpen();
       }
     }, 0);
-  }
-
-  onSelectListKeyPressEvent(event: KeyboardEvent) {
-    if (event.keyCode === DOWN_ARROW || event.keyCode === UP_ARROW) {
-      this.isDrdOpen = true;
-    }
   }
 }

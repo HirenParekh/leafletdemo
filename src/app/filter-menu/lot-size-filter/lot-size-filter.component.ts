@@ -1,22 +1,23 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FilterTypeConstants, HouseListTypes, ListTypeConstants} from '../filter.constants';
+import {FilterTypeConstants, HouseListTypes, ListTypeConstants, NoOfBathList} from '../filter.constants';
 import {ICommonFilter} from '../common-filter.interface';
-import {DropDownBaseComponent} from '../drop-down.component';
+
+declare var jQuery: any;
 
 @Component({
   selector: 'icity-lot-size-filter',
   templateUrl: './lot-size-filter.component.html',
-  styleUrls: ['../filter-menu.component.css','./lot-size-filter.component.css']
+  styleUrls: ['../filter-menu.component.css', './lot-size-filter.component.css']
 })
-export class LotSizeFilterComponent extends DropDownBaseComponent implements OnInit,ICommonFilter {
+export class LotSizeFilterComponent implements OnInit, ICommonFilter {
   filterType: string;
   filterValue: string[];
   filterLabel: string = 'Filters';
   houseListTypes = HouseListTypes;
   listTypeConstants = ListTypeConstants;
+  noOfBaths = NoOfBathList;
 
   constructor() {
-    super();
     this.filterType = FilterTypeConstants.NO_OF_BATHS;
   }
 
@@ -36,7 +37,16 @@ export class LotSizeFilterComponent extends DropDownBaseComponent implements OnI
   @Output()
   valueChanged: EventEmitter<{ filterType: string, filterValue: any }> = new EventEmitter<{ filterType: string, filterValue: any }>();
 
-  ngOnInit(){}
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      jQuery('select').select2({
+        minimumResultsForSearch: Infinity
+      });
+    }, 0);
+  }
 
   renderValue() {
     if (!this.filterValue) {

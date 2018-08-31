@@ -6,14 +6,20 @@
       {{selectedItem?.label}}
     </a>
     <div class="drd-body show-border" #drdBody>
-      <app-selection-list>
+      <ul class="select-list">
+        <li *ngFor="let currItem of noOfBathList">
+          <a class="anchor-div"
+             [attr.data-value]="currItem.value">{{currItem.label}}</a>
+        </li>
+      </ul>
+      <!--<app-selection-list #selectionList>
         <app-selection-list-item *ngFor="let currItem of noOfBathList"
                                  (click)="onBathNoSelectionChanged(currItem)"
                                  (selectionChanged)="onBathNoSelectionChanged(currItem)"
                                  [isSelected]="selectedItem == currItem">
           {{currItem.label}}
         </app-selection-list-item>
-      </app-selection-list>
+      </app-selection-list>-->
     </div>
   </div>
 </div>

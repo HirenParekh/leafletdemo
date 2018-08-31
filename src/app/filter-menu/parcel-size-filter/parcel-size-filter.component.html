@@ -1,0 +1,14 @@
+<div class="filter-wrapper filter-lg">
+  <div class="filter-label">{{filterLabel}}</div>
+  <div class="filter-ctrl-wrapper">
+    <input class="filter-txt-input filter-ctrl"
+           (change)="onInputValChanged($event)"
+           [(ngModel)]="minValue"
+           type="text" placeholder="MIN">
+    <span></span>
+    <input class="filter-txt-input filter-ctrl"
+           (change)="onInputValChanged($event)"
+           [(ngModel)]="maxValue"
+           type="text" placeholder="MAX">
+  </div>
+</div>

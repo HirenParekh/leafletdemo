@@ -54,5 +54,14 @@ export class SelectionListComponent {
     return item;
   }
 
+  setFocus() {
+    console.log('set focus 1');
+    this.listItems.forEach(val => {
+      if (val.isSelected) {
+        val.setFocus();
+      }
+    });
+  }
+
 
 }

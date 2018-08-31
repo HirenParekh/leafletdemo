@@ -79,7 +79,10 @@
   background-color: #efefef;
   cursor: pointer;
 }
-
+.drd-menu .menu-item input{
+  margin: 5px 3px 0 3px;
+}
 .drd-menu .menu-item label{
   cursor: pointer;
+  margin-bottom: 0;
 }
