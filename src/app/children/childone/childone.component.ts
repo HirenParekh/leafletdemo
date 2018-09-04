@@ -38,13 +38,13 @@ export class ChildoneComponent implements OnInit {
 
     this.streetViewLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
+      maxZoom: 25,
       id: 'mapbox.streets',
       accessToken: environment.mapBoxKey
     });
     this.aerialViewLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
+      maxZoom: 30,
       id: 'mapbox.satellite',
       accessToken: environment.mapBoxKey
     });
@@ -65,6 +65,7 @@ export class ChildoneComponent implements OnInit {
 
     this.leaflet.on('zoomend ', (event) => {
       this.handleViewAutoUpdate();
+      console.log("zoom => ",this.leaflet.getZoom());
     });
     this.leaflet.on('moveend', () => {
       //console.log(this.leaflet.getBounds());

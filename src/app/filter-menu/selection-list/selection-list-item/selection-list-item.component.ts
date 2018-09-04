@@ -50,4 +50,12 @@ export class SelectionListItemComponent {
   onHostClicked(event) {
     event.stopPropagation();
   }
+
+  setFocus() {
+    /* console.log('set focus 2');
+     if (this.itemRef) {
+       console.log('set focus 3');
+       this.itemRef.nativeElement.focus();
+     }*/
+  }
 }
