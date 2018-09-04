@@ -9,7 +9,7 @@ body {
   margin: 0;
 }
 
-#leafletmap {
+#leafletmap,#map{
   position: absolute;
   left: 0;
   right: 0;

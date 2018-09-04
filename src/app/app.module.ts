@@ -22,6 +22,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import {FilterMenuModule} from './filter-menu/filter-menu.module';
 import {FormsModule} from '@angular/forms';
+import { StreetViewComponent } from './street-view/street-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import {FormsModule} from '@angular/forms';
     GrandChildthreeComponent,
     GrandChildfourComponent,
     MapControlsComponent,
+    StreetViewComponent,
   ],
   imports: [
     BrowserModule,

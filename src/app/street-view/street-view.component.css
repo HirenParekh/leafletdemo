@@ -1,0 +1,43 @@
+.component-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.backdrop-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.component-wrapper .street-view-container {
+  width: 90%;
+  height: 90%;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.btn-close {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #333333;
+  position: absolute;
+  left: 95%;
+  top: 5%;
+  z-index: 2;
+}

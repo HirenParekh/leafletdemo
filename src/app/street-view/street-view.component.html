@@ -1,0 +1,6 @@
+<div class="component-wrapper" *ngIf="isVisible">
+  <div id="streetView" class="street-view-container"></div>
+  <div class="btn-close" (click)="isVisible = false">&times;</div>
+  <div class="backdrop-overlay" (click)="isVisible = false"></div>
+</div>
+
