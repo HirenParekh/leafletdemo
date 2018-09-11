@@ -9,7 +9,7 @@ body {
   margin: 0;
 }
 
-#leafletmap,#map{
+#leafletmap, #map {
   position: absolute;
   left: 0;
   right: 0;
@@ -237,3 +237,4 @@ body {
   padding: 5px;
   height: 30px;
 }
+

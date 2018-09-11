@@ -1,0 +1,63 @@
+<div class="info-filter-wrapper">
+  <div class="filter-item-container" *ngIf="!selectedFilter">
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)" (click)="onFilterBtnClick(staticInfoFilterConstant.SCHOOLS)">
+        <div class="btn-icon"><i class="fas fa-school"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.SCHOOLS.label}}</div>
+      </a>
+    </div>
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)">
+        <div class="btn-icon"><i class="fas fa-heartbeat"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.DAILY_HEALTH.label}}</div>
+      </a>
+    </div>
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)">
+        <div class="btn-icon"><i class="fas fa-utensils"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.FOOD.label}}</div>
+      </a>
+    </div>
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)">
+        <div class="btn-icon"><i class="fas fa-glass-martini"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.LIVE_WELL.label}}</div>
+      </a>
+    </div>
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)">
+        <div class="btn-icon"><i class="fas fa-lock"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.SECURITY.label}}</div>
+      </a>
+    </div>
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)">
+        <div class="btn-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.HAZARDS.label}}</div>
+      </a>
+    </div>
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)">
+        <div class="btn-icon"><i class="fas fa-industry"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.POLLUTION.label}}</div>
+      </a>
+    </div>
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)">
+        <div class="btn-icon"><i class="fas fa-piggy-bank"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.AFFORDABILITY.label}}</div>
+      </a>
+    </div>
+    <div class="info-filter">
+      <a class="filter-btn" href="javascript:void(0)">
+        <div class="btn-icon"><i class="fas fa-chart-pie"></i></div>
+        <div class="btn-name">{{staticInfoFilterConstant.STATS.label}}</div>
+      </a>
+    </div>
+  </div>
+  <div class="active-filter-content">
+    <div [ngSwitch]="selectedFilter">
+      <app-schools-info *ngSwitchCase="staticInfoFilterConstant.SCHOOLS.key"></app-schools-info>
+    </div>
+  </div>
+</div>

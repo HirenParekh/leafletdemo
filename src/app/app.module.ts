@@ -23,6 +23,9 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import {FilterMenuModule} from './filter-menu/filter-menu.module';
 import {FormsModule} from '@angular/forms';
 import { StreetViewComponent } from './street-view/street-view.component';
+import { StaticInfoFilterComponent } from './static-info-filter/static-info-filter.component';
+import { SchoolsInfoComponent } from './static-info-filter/schools-info/schools-info.component';
+import { InfoFilterDropdownComponent } from './static-info-filter/info-filter-dropdown/info-filter-dropdown.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +40,9 @@ import { StreetViewComponent } from './street-view/street-view.component';
     GrandChildfourComponent,
     MapControlsComponent,
     StreetViewComponent,
+    StaticInfoFilterComponent,
+    SchoolsInfoComponent,
+    InfoFilterDropdownComponent,
   ],
   imports: [
     BrowserModule,
