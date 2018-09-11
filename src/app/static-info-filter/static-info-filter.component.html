@@ -57,7 +57,8 @@
   </div>
   <div class="active-filter-content">
     <div [ngSwitch]="selectedFilter">
-      <app-schools-info *ngSwitchCase="staticInfoFilterConstant.SCHOOLS.key"></app-schools-info>
+      <app-schools-info *ngSwitchCase="staticInfoFilterConstant.SCHOOLS.key"
+      (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-schools-info>
     </div>
   </div>
 </div>

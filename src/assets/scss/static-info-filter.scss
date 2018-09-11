@@ -1,10 +1,12 @@
 .info-filter-wrapper {
   background: #ffffff;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.22);
+  overflow: visible;
   border-radius: 4px;
-  overflow: hidden;
   .filter-item-container {
     display: flex;
+    border-radius: 4px;
+    overflow: hidden;
   }
   a.filter-btn {
     text-align: center;
@@ -14,7 +16,7 @@
     text-decoration: none;
     color: #000000;
     &:hover {
-      background-color: #f4f4f4;
+      background-color: #999;
     }
     .btn-icon {
       margin-bottom: 5px;
@@ -22,5 +24,22 @@
     .btn-name {
       font-size: 11px;
     }
+  }
+}
+
+.info-item-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  .btn-close{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .item-content {
+    border-left: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+    display: flex;
+    align-items: center;
   }
 }

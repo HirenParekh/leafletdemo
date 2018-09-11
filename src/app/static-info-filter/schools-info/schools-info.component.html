@@ -1,6 +1,8 @@
 <div class="schools-info-wrapper info-item-wrapper">
-  <a href="javascript:void(0)" class="btn-close">&times;</a>
-  <div class="item-content"></div>
-
+  <a href="javascript:void(0)" class="btn-close anchor-div" (click)="onFilterCloseBtnClick()"><i class="fas fa-times"></i></a>
+  <div class="item-content">Filter Value</div>
+  <app-info-filter-dropdown [options]="filter.options"
+                            (selectionChanged)="onFilterOptionChanged($event)">
+  </app-info-filter-dropdown>
 </div>
 

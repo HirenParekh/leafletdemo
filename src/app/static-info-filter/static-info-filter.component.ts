@@ -21,4 +21,8 @@ export class StaticInfoFilterComponent implements OnInit {
     this.selectedFilter = filterObj.key;
   }
 
+  onActiveFilterCloseEvent(value: boolean) {
+    this.selectedFilter = '';
+  }
+
 }

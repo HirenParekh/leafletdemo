@@ -1,15 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "assets/fonts/stylesheet.css";
 
 * {
   box-sizing: border-box;
+  font-family: 'Gotham HTF', sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
   margin: 0;
+  font-family: 'Gotham HTF', sans-serif;
 }
 
-#leafletmap, #map {
+#leafletmap,#map{
   position: absolute;
   left: 0;
   right: 0;
@@ -83,6 +88,8 @@ body {
 
 }
 
+/**filter menu css start**/
+
 .house-type.marker {
   width: 10px;
   height: 10px;
@@ -104,6 +111,60 @@ body {
 
 .house-type.marker.recently-sold {
   background-color: #fce012;
+}
+
+.filter-menu-wrapper {
+  background-color: #d9f0f9;
+  margin-bottom: 10px;
+  z-index: 1005;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: 50px;
+}
+
+.filter-menu-wrapper .menu-item {
+  border-right: 1px solid #ffffff;
+}
+
+.filter-wrapper {
+  height: 100%;
+}
+
+ .drd-wrapper {
+  position: relative;
+  height: inherit;
+}
+
+.drd-wrapper .drd-handle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: inherit;
+}
+
+.drd-wrapper .drd-body {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: #ffffff;
+  min-width: 100%;
+}
+
+.drd-wrapper.open .drd-handle.show-border {
+  border-color: #0074e4;
+}
+
+.drd-wrapper.open .drd-handle.show-border::after {
+  color: #0074e4;
+}
+
+.drd-wrapper.open .drd-body {
+  display: block;
+  z-index: 2;
 }
 
 .box-shadow {
@@ -238,3 +299,4 @@ body {
   height: 30px;
 }
 
+/*** filter menu css ends ***/

@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-XLight.eot');
+  src: local('Gotham HTF XLight'), local('GothamHTF-XLight'),
+  url('GothamHTF-XLight.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-XLight.woff2') format('woff2'),
+  url('GothamHTF-XLight.woff') format('woff'),
+  url('GothamHTF-XLight.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-Light.eot');
+  src: local('Gotham HTF Light'), local('GothamHTF-Light'),
+  url('GothamHTF-Light.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-Light.woff2') format('woff2'),
+  url('GothamHTF-Light.woff') format('woff'),
+  url('GothamHTF-Light.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-Book.eot');
+  src: local('Gotham HTF Book'), local('GothamHTF-Book'),
+  url('GothamHTF-Book.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-Book.woff2') format('woff2'),
+  url('GothamHTF-Book.woff') format('woff'),
+  url('GothamHTF-Book.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-Medium.eot');
+  src: local('Gotham HTF Medium'), local('GothamHTF-Medium'),
+  url('GothamHTF-Medium.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-Medium.woff2') format('woff2'),
+  url('GothamHTF-Medium.woff') format('woff'),
+  url('GothamHTF-Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-Bold.eot');
+  src: local('Gotham HTF Bold'), local('GothamHTF-Bold'),
+  url('GothamHTF-Bold.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-Bold.woff2') format('woff2'),
+  url('GothamHTF-Bold.woff') format('woff'),
+  url('GothamHTF-Bold.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-Black.eot');
+  src: local('Gotham HTF Black'), local('GothamHTF-Black'),
+  url('GothamHTF-Black.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-Black.woff2') format('woff2'),
+  url('GothamHTF-Black.woff') format('woff'),
+  url('GothamHTF-Black.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-Ultra.eot');
+  src: local('Gotham HTF Ultra'), local('GothamHTF-Ultra'),
+  url('GothamHTF-Ultra.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-Ultra.woff2') format('woff2'),
+  url('GothamHTF-Ultra.woff') format('woff'),
+  url('GothamHTF-Ultra.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-ThinItalic.eot');
+  src: local('Gotham HTF Thin Italic'), local('GothamHTF-ThinItalic'),
+  url('GothamHTF-ThinItalic.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-ThinItalic.woff2') format('woff2'),
+  url('GothamHTF-ThinItalic.woff') format('woff'),
+  url('GothamHTF-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-BoldItalic.eot');
+  src: local('Gotham HTF Bold Italic'), local('GothamHTF-BoldItalic'),
+  url('GothamHTF-BoldItalic.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-BoldItalic.woff2') format('woff2'),
+  url('GothamHTF-BoldItalic.woff') format('woff'),
+  url('GothamHTF-BoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-UltraItalic.eot');
+  src: local('Gotham HTF Ultra Italic'), local('GothamHTF-UltraItalic'),
+  url('GothamHTF-UltraItalic.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-UltraItalic.woff2') format('woff2'),
+  url('GothamHTF-UltraItalic.woff') format('woff'),
+  url('GothamHTF-UltraItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-BlackItalic.eot');
+  src: local('Gotham HTF Black Italic'), local('GothamHTF-BlackItalic'),
+  url('GothamHTF-BlackItalic.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-BlackItalic.woff2') format('woff2'),
+  url('GothamHTF-BlackItalic.woff') format('woff'),
+  url('GothamHTF-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-LightItalic.eot');
+  src: local('Gotham HTF Light Italic'), local('GothamHTF-LightItalic'),
+  url('GothamHTF-LightItalic.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-LightItalic.woff2') format('woff2'),
+  url('GothamHTF-LightItalic.woff') format('woff'),
+  url('GothamHTF-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham HTF';
+  src: url('GothamHTF-BookItalic.eot');
+  src: local('Gotham HTF Book Italic'), local('GothamHTF-BookItalic'),
+  url('GothamHTF-BookItalic.eot?#iefix') format('embedded-opentype'),
+  url('GothamHTF-BookItalic.woff2') format('woff2'),
+  url('GothamHTF-BookItalic.woff') format('woff'),
+  url('GothamHTF-BookItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+

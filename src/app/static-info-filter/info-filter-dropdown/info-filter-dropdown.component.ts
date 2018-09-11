@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DropDownBaseComponent} from '../../filter-menu/drop-down.component';
 
 @Component({
@@ -12,10 +12,15 @@ export class InfoFilterDropdownComponent extends DropDownBaseComponent implement
     super();
   }
 
+  @Input() options: any[];
   @Output() selectionChanged: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit() {
 
   }
 
+  onOptionSelect(option) {
+    this.isDrdOpen = false;
+    this.selectionChanged.emit(option);
+  }
 }

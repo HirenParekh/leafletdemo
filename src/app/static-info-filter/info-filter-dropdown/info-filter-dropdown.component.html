@@ -1,7 +1,12 @@
-<div class="drd-wrapper" [class.open]="isDrdOpen">
-  <a class="drd-handle anchor-div" (click)="onDrdHandleClicked($event)" href="javascript:void(0)">
-  </a>
-</div>
-<div class="drd-body box-shadow" #drdBody>
-
+<div class="info-filter-drd-container">
+  <div class="drd-wrapper" [class.open]="isDrdOpen">
+    <a class="drd-handle anchor-div" (click)="onDrdHandleClicked($event)" href="javascript:void(0)">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="drd-body box-shadow" #drdBody>
+      <ul>
+        <li *ngFor="let currOption of options" (click)="onOptionSelect(currOption)">{{currOption.label}}</li>
+      </ul>
+    </div>
+  </div>
 </div>

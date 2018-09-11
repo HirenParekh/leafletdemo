@@ -67,6 +67,14 @@ export const NoOfBathList = [
   {label: '6+', value: 6},
 ];
 
+export const LotSizeList = [
+  {label: '+400 sqm', value: 400},
+  {label: '+600 sqm', value: 600},
+  {label: '+800 sqm', value: 800},
+  {label: '+1000 sqm', value: 1000},
+  {label: '+2000 sqm', value: 2000}
+];
+
 
 
 
