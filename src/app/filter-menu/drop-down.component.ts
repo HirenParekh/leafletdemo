@@ -35,7 +35,6 @@ export class DropDownBaseComponent {
       this.isDrdOpen = false;
     });
     document.addEventListener('closeOtherChildDrd', (event) => {
-      console.log('closeOtherChildDrd');
       if (this.isChildDrd)
         this.isDrdOpen = false;
     });

@@ -13,6 +13,7 @@ export class InfoFilterDropdownComponent extends DropDownBaseComponent implement
   }
 
   @Input() options: any[];
+  @Input() value: any;
   @Output() selectionChanged: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit() {

@@ -26,6 +26,14 @@ import { StreetViewComponent } from './street-view/street-view.component';
 import { StaticInfoFilterComponent } from './static-info-filter/static-info-filter.component';
 import { SchoolsInfoComponent } from './static-info-filter/schools-info/schools-info.component';
 import { InfoFilterDropdownComponent } from './static-info-filter/info-filter-dropdown/info-filter-dropdown.component';
+import { DailyHealthInfoComponent } from './static-info-filter/daily-health-info/daily-health-info.component';
+import { FoodInfoComponent } from './static-info-filter/food-info/food-info.component';
+import { LiveWellInfoComponent } from './static-info-filter/live-well-info/live-well-info.component';
+import { SecurityInfoComponent } from './static-info-filter/security-info/security-info.component';
+import { HazardsInfoComponent } from './static-info-filter/hazards-info/hazards-info.component';
+import { PollutionInfoComponent } from './static-info-filter/pollution-info/pollution-info.component';
+import { AffordabilityInfoComponent } from './static-info-filter/affordability-info/affordability-info.component';
+import { StatsInfoComponent } from './static-info-filter/stats-info/stats-info.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +51,14 @@ import { InfoFilterDropdownComponent } from './static-info-filter/info-filter-dr
     StaticInfoFilterComponent,
     SchoolsInfoComponent,
     InfoFilterDropdownComponent,
+    DailyHealthInfoComponent,
+    FoodInfoComponent,
+    LiveWellInfoComponent,
+    SecurityInfoComponent,
+    HazardsInfoComponent,
+    PollutionInfoComponent,
+    AffordabilityInfoComponent,
+    StatsInfoComponent,
   ],
   imports: [
     BrowserModule,

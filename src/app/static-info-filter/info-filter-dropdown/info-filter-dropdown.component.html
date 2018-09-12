@@ -5,7 +5,11 @@
     </a>
     <div class="drd-body box-shadow" #drdBody>
       <ul>
-        <li *ngFor="let currOption of options" (click)="onOptionSelect(currOption)">{{currOption.label}}</li>
+        <li *ngFor="let currOption of options"
+            [class.selected]="currOption === value"
+            (click)="onOptionSelect(currOption)">
+          <a href="javascript:void(0)" class="anchor-div">{{currOption.label}}</a>
+        </li>
       </ul>
     </div>
   </div>

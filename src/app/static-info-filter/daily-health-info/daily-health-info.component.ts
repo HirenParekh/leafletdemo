@@ -1,17 +1,16 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {ICommonFilter} from '../../filter-menu/common-filter.interface';
 import {StaticInfoFilterConstants} from '../../app.constants';
 import {DropDownBaseComponent} from '../../filter-menu/drop-down.component';
 
 @Component({
-  selector: 'app-schools-info',
-  templateUrl: './schools-info.component.html',
-  styleUrls: ['../../../assets/scss/static-info-filter.css', './schools-info.component.css']
+  selector: 'app-daily-health-info',
+  templateUrl: './daily-health-info.component.html',
+  styleUrls: ['../../../assets/scss/static-info-filter.css', './daily-health-info.component.css']
 })
-export class SchoolsInfoComponent implements OnInit, ICommonFilter {
+export class DailyHealthInfoComponent implements OnInit {
   filterType: string;
 
-  filter = StaticInfoFilterConstants.SCHOOLS;
+  filter = StaticInfoFilterConstants.DAILY_HEALTH;
   filterValue: any;
   @Output() closeFilterEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   @ViewChild('drdRef') drdRef: DropDownBaseComponent;

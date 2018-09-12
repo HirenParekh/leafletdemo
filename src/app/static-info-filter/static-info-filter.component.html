@@ -7,49 +7,51 @@
       </a>
     </div>
     <div class="info-filter">
-      <a class="filter-btn" href="javascript:void(0)">
+      <a class="filter-btn" href="javascript:void(0) "
+         (click)="onFilterBtnClick(staticInfoFilterConstant.DAILY_HEALTH)">
         <div class="btn-icon"><i class="fas fa-heartbeat"></i></div>
         <div class="btn-name">{{staticInfoFilterConstant.DAILY_HEALTH.label}}</div>
       </a>
     </div>
     <div class="info-filter">
-      <a class="filter-btn" href="javascript:void(0)">
+      <a class="filter-btn" href="javascript:void(0)" (click)="onFilterBtnClick(staticInfoFilterConstant.FOOD)">
         <div class="btn-icon"><i class="fas fa-utensils"></i></div>
         <div class="btn-name">{{staticInfoFilterConstant.FOOD.label}}</div>
       </a>
     </div>
     <div class="info-filter">
-      <a class="filter-btn" href="javascript:void(0)">
+      <a class="filter-btn" href="javascript:void(0)" (click)="onFilterBtnClick(staticInfoFilterConstant.LIVE_WELL)">
         <div class="btn-icon"><i class="fas fa-glass-martini"></i></div>
         <div class="btn-name">{{staticInfoFilterConstant.LIVE_WELL.label}}</div>
       </a>
     </div>
     <div class="info-filter">
-      <a class="filter-btn" href="javascript:void(0)">
+      <a class="filter-btn" href="javascript:void(0)" (click)="onFilterBtnClick(staticInfoFilterConstant.SECURITY)">
         <div class="btn-icon"><i class="fas fa-lock"></i></div>
         <div class="btn-name">{{staticInfoFilterConstant.SECURITY.label}}</div>
       </a>
     </div>
     <div class="info-filter">
-      <a class="filter-btn" href="javascript:void(0)">
+      <a class="filter-btn" href="javascript:void(0)" (click)="onFilterBtnClick(staticInfoFilterConstant.HAZARDS)">
         <div class="btn-icon"><i class="fas fa-exclamation-triangle"></i></div>
         <div class="btn-name">{{staticInfoFilterConstant.HAZARDS.label}}</div>
       </a>
     </div>
     <div class="info-filter">
-      <a class="filter-btn" href="javascript:void(0)">
+      <a class="filter-btn" href="javascript:void(0)" (click)="onFilterBtnClick(staticInfoFilterConstant.POLLUTION)">
         <div class="btn-icon"><i class="fas fa-industry"></i></div>
         <div class="btn-name">{{staticInfoFilterConstant.POLLUTION.label}}</div>
       </a>
     </div>
     <div class="info-filter">
-      <a class="filter-btn" href="javascript:void(0)">
+      <a class="filter-btn" href="javascript:void(0)"
+         (click)="onFilterBtnClick(staticInfoFilterConstant.AFFORDABILITY)">
         <div class="btn-icon"><i class="fas fa-piggy-bank"></i></div>
         <div class="btn-name">{{staticInfoFilterConstant.AFFORDABILITY.label}}</div>
       </a>
     </div>
     <div class="info-filter">
-      <a class="filter-btn" href="javascript:void(0)">
+      <a class="filter-btn" href="javascript:void(0)" (click)="onFilterBtnClick(staticInfoFilterConstant.STATS)">
         <div class="btn-icon"><i class="fas fa-chart-pie"></i></div>
         <div class="btn-name">{{staticInfoFilterConstant.STATS.label}}</div>
       </a>
@@ -58,7 +60,23 @@
   <div class="active-filter-content">
     <div [ngSwitch]="selectedFilter">
       <app-schools-info *ngSwitchCase="staticInfoFilterConstant.SCHOOLS.key"
-      (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-schools-info>
+                        (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-schools-info>
+      <app-daily-health-info *ngSwitchCase="staticInfoFilterConstant.DAILY_HEALTH.key"
+                             (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-daily-health-info>
+      <app-food-info *ngSwitchCase="staticInfoFilterConstant.FOOD.key"
+                     (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-food-info>
+      <app-live-well-info *ngSwitchCase="staticInfoFilterConstant.LIVE_WELL.key"
+                          (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-live-well-info>
+      <app-security-info *ngSwitchCase="staticInfoFilterConstant.SECURITY.key"
+                         (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-security-info>
+      <app-hazards-info *ngSwitchCase="staticInfoFilterConstant.HAZARDS.key"
+                        (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-hazards-info>
+      <app-pollution-info *ngSwitchCase="staticInfoFilterConstant.POLLUTION.key"
+                          (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-pollution-info>
+      <app-affordability-info *ngSwitchCase="staticInfoFilterConstant.AFFORDABILITY.key"
+                              (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-affordability-info>
+      <app-stats-info *ngSwitchCase="staticInfoFilterConstant.STATS.key"
+                      (closeFilterEvent)="onActiveFilterCloseEvent($event)"></app-stats-info>
     </div>
   </div>
 </div>
