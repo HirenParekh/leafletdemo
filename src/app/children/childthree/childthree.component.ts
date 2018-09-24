@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {ChildoneComponent} from '../childone/childone.component';
 import L from 'leaflet';
 import {StreetViewComponent} from '../../street-view/street-view.component';
@@ -10,14 +10,11 @@ declare var google: any;
   templateUrl: './childthree.component.html',
   styleUrls: ['./childthree.component.css']
 })
-export class ChildthreeComponent implements OnInit, AfterViewInit {
+export class ChildthreeComponent implements  AfterViewInit {
 
   map: any;
   latLng = {lat: 48.805765, lng: 2.169082};
   @ViewChild('streetView') streetView: StreetViewComponent;
-
-  ngOnInit(): void {
-  }
 
   ngAfterViewInit(): void {
     // Set up the map.

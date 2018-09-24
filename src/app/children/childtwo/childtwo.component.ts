@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ChildoneComponent} from '../childone/childone.component';
 import L from 'leaflet';
 
@@ -9,8 +9,8 @@ import L from 'leaflet';
 })
 export class ChildtwoComponent extends ChildoneComponent implements OnInit, AfterViewInit {
 
-  constructor() {
-    super();
+  constructor(@Inject(PLATFORM_ID) protected platformId) {
+    super(platformId);
   }
 
   coordinates = [

@@ -1,5 +1,5 @@
 <div id="leafletmap"></div>
-<app-map-controls (btnZoomInClickEvent)="onBtnZoomInClickEventHandler($event)"
+<app-map-controls *ngIf="isBrowser" (btnZoomInClickEvent)="onBtnZoomInClickEventHandler($event)"
                   (layerSelectionChanged) = "onLayerSelectionChangeEventHandler($event)"
                   (btnZoomOutClickEvent)="onBtnZoomOutClickEventHandler($event)">
 </app-map-controls>

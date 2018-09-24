@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import L from 'leaflet';
 import {environment} from '../../../environments/environment';
+import {isPlatformBrowser} from '@angular/common';
 
 declare var require: any;
 
@@ -16,26 +17,22 @@ export class ChildoneComponent implements OnInit {
   streetViewLayer: any;
   activeLayerName: string = 'automatic';
   isViewAutoChanged: boolean = false;
-
-  constructor() {
+  isBrowser:boolean = false;
+  constructor(@Inject(PLATFORM_ID) protected platformId) {
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    this.initMap();
-    this.renderDataOnMap();
+    if(this.isBrowser){
+      this.initMap();
+      this.renderDataOnMap();
+    }
   }
 
   initMap() {
-    delete L.Icon.Default.prototype._getIconUrl;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-      iconUrl: require('leaflet/dist/images/marker-icon.png'),
-      shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-    });
-
     this.streetViewLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 25,

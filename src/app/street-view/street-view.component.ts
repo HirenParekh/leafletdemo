@@ -14,7 +14,7 @@ export class StreetViewComponent implements OnInit {
   streetViewService: any;
   panorama: any;
   latLng: { lat: number, lng: number };
-
+  isLoading:boolean = false;
   constructor() {
   }
 
@@ -42,6 +42,7 @@ export class StreetViewComponent implements OnInit {
   }
 
   renderStreetView(data, status) {
+    this.isLoading = true;
     if (status === google.maps.StreetViewStatus.OK) {
       this.panorama.setPano(data.location.pano);
       this.panorama.setPov({

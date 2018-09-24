@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ChildoneComponent} from '../childone/childone.component';
 import * as L from 'leaflet';
 
@@ -9,8 +9,8 @@ import * as L from 'leaflet';
 })
 export class ChildfourComponent extends ChildoneComponent implements OnInit {
 
-  constructor() {
-    super();
+  constructor(@Inject(PLATFORM_ID) protected platformId) {
+    super(platformId);
   }
 
   renderDataOnMap() {
