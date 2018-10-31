@@ -14,7 +14,7 @@ body {
   font-family: 'Gotham HTF', sans-serif;
 }
 
-#leafletmap,#map{
+#leafletmap,#map,#mapbox{
   position: absolute;
   left: 0;
   right: 0;

@@ -1,10 +1,7 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
-import L from 'leaflet';
 import {environment} from '../../../environments/environment';
 import {isPlatformBrowser} from '@angular/common';
-
-declare var require: any;
-
+import {LeafletService} from '../../leaflet.service';
 @Component({
   selector: 'app-childone',
   templateUrl: './childone.component.html',
@@ -18,7 +15,7 @@ export class ChildoneComponent implements OnInit {
   activeLayerName: string = 'automatic';
   isViewAutoChanged: boolean = false;
   isBrowser:boolean = false;
-  constructor(@Inject(PLATFORM_ID) protected platformId) {
+  constructor(@Inject(PLATFORM_ID) protected platformId,protected ls:LeafletService) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
@@ -33,13 +30,13 @@ export class ChildoneComponent implements OnInit {
   }
 
   initMap() {
-    this.streetViewLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    this.streetViewLayer = this.ls.L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 25,
       id: 'mapbox.streets',
       accessToken: environment.mapBoxKey
     });
-    this.aerialViewLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    this.aerialViewLayer = this.ls.L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 30,
       id: 'mapbox.satellite',
@@ -58,7 +55,7 @@ export class ChildoneComponent implements OnInit {
       '<img title=\'Street view\' class=\'layer-style\' src=\'/assets/images/streetView.PNG\'>': this.streetViewLayer
     };
 
-    this.leaflet = L.map('leafletmap', mapOptions).setView([23.224043, 72.646284], 15);
+    this.leaflet = this.ls.L.map('leafletmap', mapOptions).setView([23.224043, 72.646284], 15);
 
     this.leaflet.on('zoomend ', (event) => {
       this.handleViewAutoUpdate();

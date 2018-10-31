@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {ChildoneComponent} from '../childone/childone.component';
-import L from 'leaflet';
 import {StreetViewComponent} from '../../street-view/street-view.component';
 
 declare var google: any;

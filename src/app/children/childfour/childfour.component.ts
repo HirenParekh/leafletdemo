@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ChildoneComponent} from '../childone/childone.component';
-import * as L from 'leaflet';
+import {LeafletService} from '../../leaflet.service';
 
 @Component({
   selector: 'app-childfour',
@@ -9,8 +9,8 @@ import * as L from 'leaflet';
 })
 export class ChildfourComponent extends ChildoneComponent implements OnInit {
 
-  constructor(@Inject(PLATFORM_ID) protected platformId) {
-    super(platformId);
+  constructor(@Inject(PLATFORM_ID) protected platformId,protected ls:LeafletService) {
+    super(platformId,ls);
   }
 
   renderDataOnMap() {
@@ -42,7 +42,7 @@ export class ChildfourComponent extends ChildoneComponent implements OnInit {
       }
     }];
 
-    let geoJSONLayer = L.geoJSON(states, {
+    let geoJSONLayer = this.ls.L.geoJSON(states, {
       style: function (feature) {
         switch (feature.properties.party) {
           case 'Republican':
@@ -60,7 +60,7 @@ export class ChildfourComponent extends ChildoneComponent implements OnInit {
     let overlayMaps = {
       'Sectors': geoJSONLayer
     };
-    L.control.layers('', overlayMaps, {collapsed: false}).addTo(this.leaflet);
+    this.ls.L.control.layers('', overlayMaps, {collapsed: false}).addTo(this.leaflet);
   }
 
 }

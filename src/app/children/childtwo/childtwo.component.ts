@@ -1,16 +1,20 @@
 import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ChildoneComponent} from '../childone/childone.component';
-import L from 'leaflet';
+import {LeafletService} from '../../leaflet.service';
+import mapboxgl from 'mapbox-gl';
+import * as turf from '@turf/turf'
 
+import {environment} from '../../../environments/environment';
 @Component({
   selector: 'app-childtwo',
   templateUrl: './childtwo.component.html',
   styleUrls: ['./childtwo.component.css']
 })
-export class ChildtwoComponent extends ChildoneComponent implements OnInit, AfterViewInit {
+export class ChildtwoComponent implements  AfterViewInit {
 
-  constructor(@Inject(PLATFORM_ID) protected platformId) {
-    super(platformId);
+  _mapRef:any;
+  constructor() {
+
   }
 
   coordinates = [
@@ -26,63 +30,45 @@ export class ChildtwoComponent extends ChildoneComponent implements OnInit, Afte
     [23.216504, 72.63084]
   ];
 
-  renderDataOnMap() {
+  initMap(){
+    mapboxgl.accessToken = environment.mapBoxKey;
+     this._mapRef = new mapboxgl.Map({
+      container: 'mapbox',
+      style: 'mapbox://styles/mapbox/streets-v9',
+       center: [2.3522, 48.8566],
+       zoom: 14
+    });
+    this._mapRef.on('load', () => {
+      this._mapRef.setPaintProperty('building', 'fill-color', [
+        "case",
+        ["<=",["get","height"],5],
+        "#00ff00",
+        "#ff0000"
+      ]);
 
-    let icon1 = L.icon({
-      iconUrl: '/assets/images/pin2.png',
-      iconSize: [40, 40],
-      iconAnchor: [20, 20],
-      popupAnchor: [0, -20]
+      this._mapRef.setPaintProperty('building', 'fill-opacity', [
+        "interpolate",
+        ["exponential", 0.9],
+        ["zoom"],
+        15,
+        0,
+        22,
+        1
+      ]);
     });
-    let icon2 = L.icon({
-      iconUrl: '/assets/images/pin3.png',
-      iconSize: [40, 40],
-      iconAnchor: [20, 20],
-      popupAnchor: [0, -20]
+    this._mapRef.on('click',  (e) => {
+      let features = this._mapRef.queryRenderedFeatures(e.point);
+      document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
+      let polygon = turf.polygon(features[0].geometry.coordinates);
+      let area = turf.area(polygon);
+      console.log("Area => ",area);
     });
-    let divIcon = L.divIcon({
-      className: 'div-icon-marker',
-      iconSize: [16, 16],
-      iconAnchor: [8, 8],
-      popupAnchor: [0, -8]
-    });
-    this.coordinates.forEach(point => {
-      let currMarker = L.marker(point,{icon:divIcon}).addTo(this.leaflet);
-      let timer;
-      currMarker.bindPopup(this.getPopupContent('Hiren'));
-      currMarker.on('mouseover',() => {
-        timer = setTimeout(() => {
-          currMarker.openPopup();
-        },350);
-
-      });
-      currMarker.on('mouseout',() => {
-        timer ? clearTimeout(timer): '';
-        currMarker.closePopup();
-      });
-    })
   }
 
-  getPopupContent(userName: string): string {
-    let content = '';
-    content = `<div class="popup-wrapper">
-      <div class="popup-title">Hello ${userName}</div>
-        <div class="popup-content">
-          <div class="info-item">
-            <div class="item-title">Email: </div>
-            <div class="item-text">Hiren@gmail.com</div>
-          </div>  
-          <div class="info-item">
-            <div class="item-title">Mobile: </div>
-            <div class="item-text">9712046538</div>
-          </div>
-          <div class="info-item">
-            <div class="item-title">Works at: </div>
-            <div class="item-text">Infibeam</div>
-          </div>  
-        </div>
-    </div>`;
-    return content;
+  ngAfterViewInit(){
+      setTimeout(() => {
+          this.initMap();
+      },1000)
   }
 
 }

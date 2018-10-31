@@ -77,11 +77,7 @@ import {isPlatformBrowser} from '@angular/common';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object,
-              @Inject(APP_ID) private appId: string) {
+  constructor() {
     library.add(fas);
-    const platform = isPlatformBrowser(platformId) ?
-      'in the browser' : 'on the server';
-    console.log(`Running ${platform} with appId=${appId}`);
   }
 }
